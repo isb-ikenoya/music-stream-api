@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+
+Globals:
+  Function:
+    Runtime: nodejs22.x
+    Timeout: 10
+
+Resources:
+  MySharedLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      ContentUri: "./layers/my-shared-layer"
+      CompatibleRuntimes:
+        - nodejs22.x
+      Description: "Shared production node_modules managed by pnpm master package.json"
+  GetMusicList:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./dist/getMusicList
+      Handler: index.handler
+      Layers:
+        - Ref: MySharedLayer
