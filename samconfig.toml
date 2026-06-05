@@ -6,7 +6,7 @@ region = "ap-northeast-1"
 confirm_changeset = false
 capabilities = "CAPABILITY_IAM"
 # 💡 前のステップで決めたタグもここで一括指定できます
-tags = "created_by=\"yuta_ikenoya\"
+tags = 'created_by=yuta_ikenoya'
 
 # ⚠️ ここにデプロイ用のS3バケット名を指定します（下記参照）
 s3_bucket = "sam-test-ikenoya"
