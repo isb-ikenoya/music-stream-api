@@ -18,6 +18,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: ./dist/getMusicList
+      FunctionName: music-stream-api-get-music-list
       Handler: index.handler
       Layers:
         - Ref: MySharedLayer
