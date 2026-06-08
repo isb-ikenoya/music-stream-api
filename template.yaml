@@ -22,3 +22,9 @@ Resources:
       Handler: index.handler
       Layers:
         - Ref: MySharedLayer
+      Events:
+        GetMusicListApi:
+          Type: Api
+          Properties:
+            Path: /
+            Method: get
