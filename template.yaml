@@ -32,4 +32,4 @@ Outputs:
   TargetApiId:
     Description: "API Gateway ID created by SAM"
     Value:
-      - Ref: ServerlessRestApi
+      Ref: ServerlessRestApi
