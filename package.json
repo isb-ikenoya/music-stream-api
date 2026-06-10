@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:getMusicList": "esbuild src/handlers/getMusicList.ts --bundle --minify --platform=node --target=node22 --outfile=dist/getMusicList/index.js",
-    "build": "pnpm build:getMusicList",
+    "build": "node build.js",
     "build:layer": "mkdir -p layers/my-shared-layer/nodejs && cp package.json pnpm-lock.yaml layers/my-shared-layer/nodejs/ && cd layers/my-shared-layer/nodejs && pnpm install --prod --frozen-lockfile --config.node-linker=hoisted"
   },
   "keywords": [],
