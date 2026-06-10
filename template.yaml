@@ -26,8 +26,23 @@ Resources:
         GetMusicListApi:
           Type: Api
           Properties:
-            Path: /
+            Path: /music
             Method: get
+  GetMusicDetail:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./dist/getMusicDetail
+      FunctionName: music-stream-api-get-music-detail
+      Handler: index.handler
+      Layers:
+        - Ref: MySharedLayer
+      Events:
+        GetMusicListApi:
+          Type: Api
+          Properties:
+            Path: /music/{id}
+            Method: get
+
 Outputs:
   TargetApiId:
     Description: "API Gateway ID created by SAM"
