@@ -7,6 +7,14 @@ Globals:
     Timeout: 10
 
 Resources:
+  # 認証つきAPI Gateweay
+  MyApiGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Dev
+      Auth:
+        ApiKeyRequired: true
+
   MySharedLayer:
     Type: AWS::Serverless::LayerVersion
     Properties:
@@ -14,6 +22,7 @@ Resources:
       CompatibleRuntimes:
         - nodejs22.x
       Description: "Shared production node_modules managed by pnpm master package.json"
+
   GetMusicList:
     Type: AWS::Serverless::Function
     Properties:
@@ -28,6 +37,8 @@ Resources:
           Properties:
             Path: /music
             Method: get
+            RestApiId:
+              Ref: MyApiGateway
   GetMusicDetail:
     Type: AWS::Serverless::Function
     Properties:
@@ -37,11 +48,13 @@ Resources:
       Layers:
         - Ref: MySharedLayer
       Events:
-        GetMusicListApi:
+        GetMusicDetailApi:
           Type: Api
           Properties:
             Path: /music/{id}
             Method: get
+            RestApiId:
+              Ref: MyApiGateway
 
 Outputs:
   TargetApiId:
