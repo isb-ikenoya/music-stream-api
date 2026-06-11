@@ -61,7 +61,7 @@ Resources:
         GetMusicListApi:
           Type: Api
           Properties:
-            Path: /music
+            Path: /api/v1/music
             Method: get
             RestApiId:
               Ref: MyApiGateway
@@ -77,7 +77,7 @@ Resources:
         GetMusicDetailApi:
           Type: Api
           Properties:
-            Path: /music/{id}
+            Path: /api/v1/music/{id}
             Method: get
             RestApiId:
               Ref: MyApiGateway
