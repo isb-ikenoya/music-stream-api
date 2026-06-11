@@ -26,7 +26,7 @@ Resources:
   MyApiUsagePlan:
     Type: AWS::ApiGateway::UsagePlan
     # 暗黙的に作られる「MyApiGatewayProdStage」の完成を絶対に待たせる
-    DependsOn: MyApiGateway
+    DependsOn: MyApiGatewayProdStage
     Properties:
       UsagePlanName: "music-stream-usage-plan"
       ApiStages:
