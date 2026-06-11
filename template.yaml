@@ -29,7 +29,7 @@ Resources:
       UsagePlanName: "music-stream-usage-plan"
       ApiStages:
         - ApiId: !Ref MyApiGateway
-          Stage: Dev
+          Stage: Prod # どの環境もStage名はProd
 
   # APIキーと使用量プランの紐付け
   MyApiUsagePlanKey:
