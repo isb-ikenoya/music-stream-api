@@ -11,7 +11,7 @@ Resources:
   MyApiGateway:
     Type: AWS::Serverless::Api
     Properties:
-      StageName: Dev
+      StageName: Prod
       Auth:
         ApiKeyRequired: true
 
