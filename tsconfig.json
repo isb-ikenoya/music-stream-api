@@ -11,7 +11,8 @@
     "forceConsistentCasingInFileNames": true,
     "paths": {
       "/opt/nodejs/*": ["./layers/my-shared-layer/nodejs/*"]
-    }
+    },
+    "types": ["node"]
   },
   "include": ["src/**/*"]
 }

@@ -1,0 +1,11 @@
+services:
+  dynamodb-local:
+    image: amazon/dynamodb-local:latest
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+    # データをコンテナ内の /data に保存し、異なる認証情報でも同じDBファイルを参照する設定
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath /data"
+    volumes:
+      - "./dynamodb_data:/data"
+    working_dir: /home/dynamodblocal
