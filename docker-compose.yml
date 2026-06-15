@@ -9,3 +9,9 @@ services:
     volumes:
       - "./dynamodb_data:/data"
     working_dir: /home/dynamodblocal
+    networks:
+      - sam-net
+
+networks:
+  sam-net:
+    name: sam-net

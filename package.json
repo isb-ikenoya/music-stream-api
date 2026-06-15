@@ -7,8 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node build.js",
     "build:layer": "mkdir -p layers/my-shared-layer/nodejs && cp package.json pnpm-lock.yaml layers/my-shared-layer/nodejs/ && cd layers/my-shared-layer/nodejs && pnpm install --prod --frozen-lockfile --config.node-linker=hoisted",
-    "local:create-table": "sh ./create-table.sh",
-    "local:seed": "pnpm dlx tsx seed.ts"
+    "local:dynamo-create-table": "sh ./create-table.sh",
+    "local:dynamo-seed": "pnpm dlx tsx seed.ts",
+    "local:api": "sam local start-api --docker-network sam-net"
   },
   "keywords": [],
   "author": "",
