@@ -7,6 +7,11 @@ Globals:
     MemorySize: 1024
     Timeout: 10
 
+Parameters:
+  ExternalTableName:
+    Type: String
+    Default: "music_tracks" # ➔ ここに名前を直書き
+
 Resources:
   # 認証つきAPI Gateweay
   MyApiGateway:
@@ -58,9 +63,9 @@ Resources:
       Handler: index.handler
       Layers:
         - Ref: MySharedLayer
-      Policies:
+      Policies: &dynamo_policy
         - DynamoDBCrudPolicy:
-            TableName: "music_tracks"
+            TableName: !Ref ExternalTableName
       Events:
         GetMusicListApi:
           Type: Api
@@ -77,9 +82,7 @@ Resources:
       Handler: index.handler
       Layers:
         - Ref: MySharedLayer
-      Policies:
-        - DynamoDBCrudPolicy:
-          TableName: "music_tracks"
+      Policies: *dynamo_policy
       Events:
         GetMusicDetailApi:
           Type: Api
