@@ -58,6 +58,9 @@ Resources:
       Handler: index.handler
       Layers:
         - Ref: MySharedLayer
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: "music_tracks"
       Events:
         GetMusicListApi:
           Type: Api
@@ -74,6 +77,9 @@ Resources:
       Handler: index.handler
       Layers:
         - Ref: MySharedLayer
+      Policies:
+        - DynamoDBCrudPolicy:
+          TableName: "music_tracks"
       Events:
         GetMusicDetailApi:
           Type: Api
